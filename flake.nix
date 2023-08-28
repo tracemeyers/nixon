@@ -50,6 +50,9 @@
         proof = mkHost { hostname = "proof"; username = "cat"; }; # TODO desktop = "plasma";
       };
 
+      # Custom packages and modifications, exported as overlays
+      overlays = import ./overlays { inherit inputs; };
+
       # FUTURE:
       # - Custom packages; acessible via 'nix build', 'nix shell', etc
     };
