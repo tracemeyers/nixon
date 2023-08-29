@@ -47,7 +47,8 @@
         #  - sudo nixos-rebuild switch --flake $HOME/Zero/nix-config
         #  - nix build .#nixosConfigurations.ripper.config.system.build.toplevel
         yogadwarf = mkHost { hostname = "yogadwarf"; username = "cat"; desktop = "plasma"; };
-        proof = mkHost { hostname = "proof"; username = "cat"; }; # TODO desktop = "plasma";
+        minproof = mkHost { hostname = "minproof"; username = "cat"; };
+        proof = mkHost { hostname = "proof"; username = "cat"; desktop = "plasma"; };
       };
 
       # Custom packages and modifications, exported as overlays

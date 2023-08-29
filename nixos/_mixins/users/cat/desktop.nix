@@ -3,7 +3,7 @@
     #../../desktop/brave.nix
     #../../desktop/chromium.nix
     # TODO
-    ../../desktop/firefox.nix
+    #../../desktop/firefox.nix
     #../../desktop/evolution.nix
     #../../desktop/google-chrome.nix
     #../../desktop/microsoft-edge.nix
