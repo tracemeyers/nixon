@@ -48,7 +48,7 @@
         #  - nix build .#nixosConfigurations.ripper.config.system.build.toplevel
         yogadwarf = mkHost { hostname = "yogadwarf"; username = "cat"; desktop = "plasma"; };
         minproof = mkHost { hostname = "minproof"; username = "cat"; };
-        proof = mkHost { hostname = "proof"; username = "cat"; desktop = "plasma"; };
+        proof = mkHost { hostname = "proof"; username = "cat"; desktop = "hyprland"; };
       };
 
       # Custom packages and modifications, exported as overlays
