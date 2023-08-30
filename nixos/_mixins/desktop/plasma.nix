@@ -79,10 +79,10 @@
       };
 
       desktopManager = {
-        plasma.enable = true;
+        plasma5.enable = true;
       };
     };
   };
-  xdg.portal.extraPortals = [ xdg-desktop-portal-kde ];
+  #xdg.portal.extraPortals = [ xdg-desktop-portal-kde ];
 }
 
