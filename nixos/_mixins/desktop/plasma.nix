@@ -1,26 +1,19 @@
 { pkgs, ... }: {
   imports = [
     #./qt-style.nix
-    #../services/networkmanager.nix
+    ../services/networkmanager.nix
   ];
 
   # Exclude MATE themes. Yaru will be used instead.
   # Don't install mate-netbook or caja-dropbox
   environment = {
-    #mate.excludePackages = with pkgs.mate; [
-    #  caja-dropbox
-    #  eom
-    #  mate-themes
-    #  mate-netbook
-    #  mate-icon-theme
-    #  mate-backgrounds
-    #  mate-icon-theme-faenza
-    #];
-
-    ## Add some packages to complete the MATE desktop
-    #systemPackages = with pkgs; [
-    #  networkmanagerapplet
-    #];
+    plasma5.excludePackages = with pkgs.libsForQt5; [
+      elisa
+    ];
+    # Add some packages to complete the desktop
+    systemPackages = with pkgs; [
+      networkmanagerapplet
+    ];
   };
 
   ## Enable some programs to provide a complete desktop
