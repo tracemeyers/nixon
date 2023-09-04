@@ -8,12 +8,12 @@
   # Don't install mate-netbook or caja-dropbox
   environment = {
     plasma5.excludePackages = with pkgs.libsForQt5; [
-      elisa
+      elisa # media player
     ];
-    # Add some packages to complete the desktop
-    systemPackages = with pkgs; [
-      networkmanagerapplet
-    ];
+    ## Add some packages to complete the desktop
+    #systemPackages = with pkgs; [
+    #  networkmanagerapplet
+    #];
   };
 
   ## Enable some programs to provide a complete desktop
