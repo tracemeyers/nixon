@@ -51,7 +51,7 @@
           config = {
             modifier = "Mod1";
             terminal = "${pkgs.konsole}/bin/konsole";
-          }
+          };
           #configFile = builtins.toFile "i3.config" ''
           #  # i3 config file (v4)
           #  #
@@ -290,110 +290,6 @@
 
     #environment = {
     #};
-  };
-
-  xsession.windowManager.i3 = {
-    enable = true;
-
-    config = {
-      modifier = "Mod1";
-      terminal = "${pkgs.konsole}/bin/konsole";
-
-      keybindings = let
-        modifier = config.xsession.windowManager.i3.config.modifier;
-      in lib.mkOptionDefault {
-        #"${modifier}+Shift+q" = "kill";
-
-        "${modifier}+h" = "focus left";
-        "${modifier}+j" = "focus down";
-        "${modifier}+k" = "focus up";
-        "${modifier}+l" = "focus right";
-        "${modifier}+Shift+h" = "move left";
-        "${modifier}+Shift+j" = "move down";
-        "${modifier}+Shift+k" = "move up";
-        "${modifier}+Shift+l" = "move right";
-        "${modifier}+Shift+greater" = "move workspace to output next";
-        #"${modifier}+Ctrl+greater = "move workspace to output next";
-        #bindsym $mod+Shift+greater move container to output right
-        #bindsym $mod+Shift+less move container to output left
-
-        "${modifier}+Shift+s" = "sticky toggle";
-        "${modifier}+Shift+e" = "exec --no-startup-id /run/current-system/sw/bin/qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1";
-        # Disabled to see if this fixes some instability in KDE plasmashell where it would lockup and could not be killed/restarted
-        "${modifier}+d" = "exec --no-startup-id /run/current-system/sw/bin/qdbus org.kde.krunner /App display";
-      };
-
-      window.commands = [
-        {
-          command = "move container to workspace current";
-          criteria = { class = "Slack"; floating = true; };
-        }
-      ];
-    };
-    extraConfig = ''
-      mode "resize" {
-              # These bindings trigger as soon as you enter the resize mode
-      
-              # Pressing left will shrink the window’s width.
-              # Pressing right will grow the window’s width.
-              # Pressing up will shrink the window’s height.
-              # Pressing down will grow the window’s height.
-              bindsym h resize grow width 10 px or 10 ppt
-              bindsym k resize grow height 10 px or 10 ppt
-              bindsym j resize shrink height 10 px or 10 ppt
-              bindsym l resize shrink width 10 px or 10 ppt
-      
-              # same bindings, but for the arrow keys
-              bindsym Left resize shrink width 10 px or 10 ppt
-              bindsym Down resize grow height 10 px or 10 ppt
-              bindsym Up resize shrink height 10 px or 10 ppt
-              bindsym Right resize grow width 10 px or 10 ppt
-      
-              # back to normal: Enter or Escape
-              bindsym Return mode "default"
-              bindsym Escape mode "default"
-      }
-
-      # https://github.com/heckelson/i3-and-kde-plasma
-      bindsym XF86AudioRaiseVolume exec --no-startup-id /run/current-system/sw/bin/qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "increase_volume"
-      bindsym XF86AudioLowerVolume exec --no-startup-id /run/current-system/sw/bin/qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "decrease_volume"
-      bindsym XF86AudioMute exec --no-startup-id /run/current-system/sw/bin/qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "mute"
-      bindsym XF86AudioMicMute exec --no-startup-id /run/current-system/sw/bin/qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "mic_mute"
-
-
-      # Documented in KDE knowledge base
-      # TRACE - don't kill the desktop so we can add panel's as needed
-      # The big drawback is the desktop initially takes over the whole
-      # screen so you have to alt+right-mouse-click to shrink it.
-      #for_window [title="Desktop — Plasma"] kill, floating enable, border none
-      for_window [title="Desktop — Plasma"] floating enable, border none
-      for_window [class="plasmashell"] floating enable
-      for_window [class="Plasma"] floating enable, border none
-      for_window [title="plasma-desktop"] floating enable, border none
-      for_window [title="win7"] floating enable, border none
-      for_window [class="krunner"] floating enable, border none
-      for_window [class="Kmix"] floating enable, border none
-      for_window [class="Klipper"] floating enable, border none
-      for_window [class="Plasmoidviewer"] floating enable, border none
-      for_window [class="(?i)*nextcloud*"] floating disable
-      for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
-      no_focus [class="plasmashell" window_type="notification"] 
-      #
-      # Custom ones
-      #
-      # Uncomment if this works better. Otherwise trying the documented one above.
-      #for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
-      for_window [window_role="pop-up"] floating enable
-      for_window [window_role="task_dialog"] floating enable
-      for_window [class="yakuake"] floating enable
-      for_window [class="systemsettings"] floating enable
-      no_focus [class="plasmashell" window_type="notification"]
-      # Kill the bar
-      bar {
-          mode hide
-      }
-
-    '';
   };
 
   #xdg.portal.extraPortals = [ xdg-desktop-portal-kde ];
