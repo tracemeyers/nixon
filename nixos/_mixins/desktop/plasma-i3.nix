@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, pkgs, ... }: {
   imports = [
     #./qt-style.nix
     ../services/networkmanager.nix
@@ -12,8 +12,10 @@
     ];
     ## Add some packages to complete the desktop
     systemPackages = with pkgs; [
+      dex
       i3
       networkmanagerapplet
+      pango
     ];
   };
 
@@ -30,11 +32,11 @@
       enable = true;
       displayManager = {
         sddm.enable = true;
-        defaultSession = "plasma5 with i3";
+        defaultSession = "plasma5+i3";
         session = [
           {
             manage = "desktop";
-            name = "plasma5 with i3";
+            name = "plasma5";
             #start = ''exec env KDEWM=${pkgs.i3}/bin/i3 ${pkgs.plasma-workspace}/bin/startplasma-x11'';
             start = ''env KDEWM=${pkgs.i3}/bin/i3 ${pkgs.plasma-workspace}/bin/startplasma-x11'';
           }
