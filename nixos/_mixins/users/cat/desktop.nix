@@ -3,7 +3,7 @@
     #../../desktop/brave.nix
     #../../desktop/chromium.nix
     # TODO
-    #../../desktop/firefox.nix
+    ../../desktop/firefox.nix
     #../../desktop/evolution.nix
     #../../desktop/google-chrome.nix
     #../../desktop/microsoft-edge.nix
@@ -56,4 +56,26 @@
   #    ];
   #  };
   #};
+  programs.firefox.policies = {
+    DisplayBookmarksToolbar = true;
+    DisablePocket = true;
+    DontCheckDefaultBrowser = true;
+    EnableTrackingProtection = true;
+    ExtensionSettings = {
+      uBlockOrigin = {
+        installation_mode = "force_installed";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+      };
+      #"bitwarden": {
+      #  "installation_mode": "normal_installed",
+      #  "install_url": "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi",
+      #  "default_area": "navbar"
+      #},
+      #"@testpilot-containers": {
+      #  "installation_mode": "normal_installed",
+      #  "install_url": "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi",
+      #  "default_area": "navbar"
+      #}
+    };
+  };
 }
