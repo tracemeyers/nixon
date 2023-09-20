@@ -4,7 +4,7 @@
     languagePacks = [ "en-US" ];
     package = pkgs.unstable.firefox;
     policies = {
-      DisplayBookmarksToolbar = true;
+      DisplayBookmarksToolbar = false;
       DisablePocket = true;
       DontCheckDefaultBrowser = true;
       EnableTrackingProtection = true;
