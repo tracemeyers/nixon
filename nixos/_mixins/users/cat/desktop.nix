@@ -92,6 +92,10 @@
         install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
         default_area = "navbar";
       };
+      "gdpr@cavi.au.dk" = {
+        installation_mode = "normal_installed";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/consent-o-matic/latest.xpi";
+      };
     };
   };
 }

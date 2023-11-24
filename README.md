@@ -37,34 +37,31 @@ Use on a VM as a proof of concept to confirm a config works as planned.
 Steps:
 1. Install qemu (or quickemu)
 2. Download and start a nixos vm:
+
+   Option:
    ```
-   $ nixos-22.05-minimal/latest-nixos-m 100%[==============>] 827.00M  1.08MB/s    in 13m 15s 
-   Checking nixos-22.05-minimal/latest-nixos-minimal-x86_64-linux.iso with sha256sum... Good!
-   Making nixos-22.05-minimal.conf
-   Giving user execute permissions on nixos-22.05-minimal.conf,
+   $ quickget nixos 22.11
+   nixos-22.11-gnome/latest-nixos-gnome-x86_64-linux.iso                 100%[++++++=======================================================
+   Checking nixos-22.11-gnome/latest-nixos-gnome-x86_64-linux.iso with sha256sum... Good!
+   Making nixos-22.11-gnome.conf
+   Giving user execute permissions on nixos-22.11-gnome.conf,
+
+   To start your NixOS virtual machine run:
+       quickemu --vm nixos-22.11-gnome.conf
+   ```
+
+   ```
+   $ nixos-22.11-minimal/latest-nixos-m 100%[==============>] 827.00M  1.08MB/s    in 13m 15s 
+   Checking nixos-22.11-minimal/latest-nixos-minimal-x86_64-linux.iso with sha256sum... Good!
+   Making nixos-22.11-minimal.conf
+   Giving user execute permissions on nixos-22.11-minimal.conf,
    
    To start your NixOS virtual machine run:
-       quickemu --vm nixos-22.05-minimal.conf
+       quickemu --vm nixos-22.11-minimal.conf
    
-   $ quickemu --vm nixos-22.05-minimal
+   $ quickemu --vm nixos-22.11-minimal.conf
    Quickemu 4.4 using /nix/store/2jh1zz3vvfwzjblf3g7143y2a64zv9az-qemu-7.1.0/bin/qemu-system-x86_64 v7.1.0
-    - Host:     "NixOS 22.11 (Raccoon)" running Linux 6.3 (i7dwarf)
-    - CPU:      12th Gen Intel(R) Core(TM) i7-12700H
-    - CPU VM:   1 Socket(s), 4 Core(s), 2 Thread(s), 8G RAM
-    - BOOT:     EFI (Linux), OVMF (/nix/store/wcjas7lny2zixidxwgbwaqvmbrfj48jk-OVMF-202205-fd/FV/OVMF_CODE.fd), SecureBoot (off).
-    - Disk:     nixos-22.05-minimal/disk.qcow2 (16G)
-                Just created, booting from nixos-22.05-minimal/latest-nixos-minimal-x86_64-linux.iso
-    - Boot ISO: nixos-22.05-minimal/latest-nixos-minimal-x86_64-linux.iso
-    - Display:  SDL, virtio-vga-gl, GL (on), VirGL (on)
-    - ssh:      On host:  ssh user@localhost -p 22220
-    - WebDAV:   On guest: dav://localhost:9843/
-    - 9P:       On guest: sudo mount -t 9p -o trans=virtio,version=9p2000.L,msize=104857600 Public-cat ~/cat
-    - Network:  User (virtio-net)
-    - Monitor:  On host:  nc -U "nixos-22.05-minimal/nixos-22.05-minimal-monitor.socket"
-                or     :  socat -,echo=0,icanon=0 unix-connect:nixos-22.05-minimal/nixos-22.05-minimal-monitor.socket
-    - Serial:   On host:  nc -U "nixos-22.05-minimal/nixos-22.05-minimal-serial.socket"
-                or     :  socat -,echo=0,icanon=0 unix-connect:nixos-22.05-minimal/nixos-22.05-minimal-serial.socket
-    - Process:  Starting nixos-22.05-minimal.conf as nixos-22.05-minimal (3806366)
+   [...]
    ```
 3. ssh and generate the nixos hardware config from within the VM
    ```
@@ -96,6 +93,10 @@ Steps:
    ```
    [nixos@nixos:~]$ ./install.sh proof cat
    ```
+
+7. After install...
+
+    1. sudo nixos-rebuild switch --flake $HOME/Zero/nix-config
 
 ## Credits
 

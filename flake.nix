@@ -45,8 +45,8 @@
       nixosConfigurations = {
         # Workstations
         #  - sudo nixos-rebuild switch --flake $HOME/Zero/nix-config
-        #  - nix build .#nixosConfigurations.ripper.config.system.build.toplevel
-        yogadwarf = mkHost { hostname = "yogadwarf"; username = "cat"; desktop = "plasma"; };
+        #  - nix build .#nixosConfigurations.<machine>.config.system.build.toplevel
+        yogadwarf = mkHost { hostname = "yogadwarf"; username = "cat"; desktop = "plasma-i3"; };
         minproof = mkHost { hostname = "minproof"; username = "cat"; };
         proof = mkHost { hostname = "proof"; username = "cat"; desktop = "plasma-i3"; };
       };
