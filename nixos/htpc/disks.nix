@@ -4,14 +4,14 @@
     disk = {
       nvme0 = {
         type = "disk";
-        device = builtins.elemat disks 0;
+        device = builtins.elemAt disks 0;
         content = {
           type = "table";
           format = "gpt";
           partitions = [{
-            name = "esp";
+            name = "ESP";
             start = "0%";
-            end = "550mib";
+            end = "550MiB";
             bootable = true;
             flags = [ "esp" ];
             fs-type = "fat32";
@@ -23,12 +23,11 @@
           }
           {
             name = "root";
-            start = "550mib";
+            start = "550MiB";
             end = "100%";
             content = {
               type = "filesystem";
-              # overwirte the existing filesystem
-              extraargs = [ "-f" ];
+              extraArgs = [ ];
               format = "ext4";
               mountpoint = "/";
             };
