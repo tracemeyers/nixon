@@ -49,6 +49,7 @@
         yogadwarf = mkHost { hostname = "yogadwarf"; username = "cat"; desktop = "plasma-i3"; };
         minproof = mkHost { hostname = "minproof"; username = "cat"; };
         proof = mkHost { hostname = "proof"; username = "cat"; desktop = "plasma-i3"; };
+        htpc = mkHost { hostname = "htpc"; username = "cat"; desktop = "plasma"; };
       };
 
       # Custom packages and modifications, exported as overlays
