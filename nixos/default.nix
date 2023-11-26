@@ -3,6 +3,7 @@
     inputs.disko.nixosModules.disko
     (modulesPath + "/installer/scan/not-detected.nix")
     ./${hostname}
+    ./modules/default.nix
     ./_mixins/services/firewall.nix
     ./_mixins/services/openssh.nix
     ./_mixins/users/root
