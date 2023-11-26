@@ -26,7 +26,7 @@
         "sd_mod"
       ];
     };
-    kernelModules = [ "kvm-amd" ];
+    kernelModules = [ "kvm-amd" "amdgpu" ];
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
@@ -40,5 +40,7 @@
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
+  services.xserver.videoDrivers = [ "amdgpu" ];
 }
 
