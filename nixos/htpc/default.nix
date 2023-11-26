@@ -3,6 +3,9 @@
   imports = [
     (import ./disks.nix { })
     ../_mixins/hardware/systemd-boot.nix
+    ../_mixins/users/tby
+    ../_mixins/services/docker.nix
+    #../_mixins/services/rustdesk-server.nix
     #../_mixins/services/pipewire.nix
     #../_mixins/virt
   ];
