@@ -11,7 +11,7 @@ in {
     };
     tcpPorts = mkOption {
       type = types.listOf types.port;
-      default = [ 8000 21115 21116 21117 21118 21119 ];
+      default = [ 21115 21116 21117 21118 21119 ];
         description = lib.mdDoc ''
           Specifies on which TCP ports to listen.
         '';
