@@ -42,6 +42,7 @@
     #unstable.wavebox
 
     unstable.neovim
+    xclip
   ];
 
   #programs = {

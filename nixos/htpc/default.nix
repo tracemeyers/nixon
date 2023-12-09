@@ -6,7 +6,7 @@
     ../_mixins/users/tby
     ../_mixins/services/docker.nix
     ../_mixins/services/rustdesk-server.nix
-    #../_mixins/services/pipewire.nix
+    ../_mixins/services/pipewire.nix
     #../_mixins/virt
   ];
 
@@ -43,4 +43,3 @@
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 }
-
