@@ -1,18 +1,26 @@
-{ desktop, pkgs, lib, ... }: {
-  imports = [
-    #../../desktop/brave.nix
-    #../../desktop/chromium.nix
-    # TODO
-    ../../desktop/firefox.nix
-    #../../desktop/evolution.nix
-    #../../desktop/google-chrome.nix
-    #../../desktop/microsoft-edge.nix
-    #../../desktop/obs-studio.nix
-    #../../desktop/opera.nix
-    #../../desktop/tilix.nix
-    #../../desktop/vivaldi.nix
-    #../../desktop/vscode.nix
-  ] ++ lib.optional (builtins.pathExists (../.. + "/desktop/${desktop}-apps.nix")) ../../desktop/${desktop}-apps.nix;
+{
+  desktop,
+  pkgs,
+  lib,
+  ...
+}: {
+  imports =
+    [
+      #../../desktop/brave.nix
+      ../../desktop/chromium.nix
+      # TODO
+      ../../desktop/firefox.nix
+      ../../desktop/steam.nix
+      #../../desktop/evolution.nix
+      #../../desktop/google-chrome.nix
+      #../../desktop/microsoft-edge.nix
+      #../../desktop/obs-studio.nix
+      #../../desktop/opera.nix
+      #../../desktop/tilix.nix
+      #../../desktop/vivaldi.nix
+      #../../desktop/vscode.nix
+    ]
+    ++ lib.optional (builtins.pathExists (../.. + "/desktop/${desktop}-apps.nix")) ../../desktop/${desktop}-apps.nix;
 
   environment.systemPackages = with pkgs; [
     #audio-recorder
@@ -41,6 +49,8 @@
     #unstable.tdesktop
     #unstable.wavebox
 
+    unstable.distrobox
+    unstable.mpv
     unstable.neovim
     xclip
   ];

@@ -31,6 +31,7 @@
     xserver = {
       enable = true;
       displayManager = {
+        defaultSession = "plasmawayland";
         sddm.enable = true;
       };
 
